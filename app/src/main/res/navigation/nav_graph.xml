@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/permissions_fragment">
+
+    <fragment android:id="@+id/permissions_fragment"
+        android:name="io.luiscarino.miraai.permissions.PermissionsFragment"
+        android:label="PermissionsFragment"
+        tools:layout="@layout/fragment_permissions">
+
+        <action
+            android:id="@+id/action_permissions_to_camera"
+            app:destination="@+id/camera_fragment"
+            app:popUpTo="@id/permissions_fragment"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_permissions_to_pager"
+            app:destination="@+id/pager_fragment"
+            app:popUpTo="@id/permissions_fragment"
+            app:popUpToInclusive="true" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/pager_fragment"
+        android:name="io.luiscarino.miraai.pager.PagerFragment"
+        android:label="PagerFragment"
+        tools:layout="@layout/base_detail_fragment">
+
+        <action android:id="@+id/action_pager_to_camera"
+            app:destination="@id/camera_fragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/camera_fragment"
+        android:name="io.luiscarino.miraai.camera.CameraFragment"
+        android:label="CameraFragment"
+        tools:layout="@layout/fragment_camera">
+
+    </fragment>
+
+</navigation>
